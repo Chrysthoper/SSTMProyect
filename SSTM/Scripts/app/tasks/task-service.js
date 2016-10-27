@@ -10,5 +10,9 @@
         return $http.post('/api/task', form);
     }
 
+    TasksData.GetTasksStates = function () {
+        return $http.get('/api/taskstates/');
+    }
+
     return TasksData;
 }]);

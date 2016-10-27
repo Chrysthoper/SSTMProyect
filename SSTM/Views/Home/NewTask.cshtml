@@ -4,51 +4,164 @@
 
 <h2>NewTask</h2>
 <div ng-app="NewTaskApp">
-    <div ng-controller="NewTaskCtrl" layout="column" ng-cloak class="md-inline-form">
+    <div ng-controller="NewTaskCtrl" layout-lg="column" ng-cloak class="md-inline-form">
         <md-content layout-padding>
             <div>
-                <form>
-                    <div layout-gt-sm="row">
-                        <md-input-container class="md-block" flex-gt-sm>
-                            <label>Name</label>
-                            <input required md-no-asterisk ng-model="task.name">
-                            <div ng-messages="task.name.$error">
-                                <div ng-message="required">This is required.</div>
-                            </div>
-                        </md-input-container>
-                    </div>
+                <form name="TaskForm">
+                    <md-toolbar class="md-theme-light">
+                        <h2 class="md-toolbar-tools">
+                            <span>Main Characteristics</span>
+                        </h2>
+                    </md-toolbar>
+                    <md-content layout-padding>
 
-                    <div layout="row">
-                        <div layout-md="row">
-                            <md-input-container class="md-block">
-                                <label>Description</label>
-                                <textarea ng-model="task.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                        <div layout="row">
+
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Name</label>
+                                <input maxlength="50" name="name" required ng-model="task.name">
+                                <div ng-messages="TaskForm.name.$error" role="alert">
+                                    <div ng-message="required">This is required.</div>
+                                    <div ng-message="maxlength">Then name must be less than 50 characters</div>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Current State</label>
+                                <md-select ng-model="task.currentState">
+                                    <md-option ng-repeat="state in states" value="{{state.key}}">
+                                        {{state.value}}
+                                    </md-option>
+                                </md-select>
                             </md-input-container>
                         </div>
-                        <div layout="column">
-                            <md-input-container>
-                                <label>Start Date</label>
-                                <md-datepicker ng-model="task.startDate"></md-datepicker>
-                            </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label>Description</label>
+                            <textarea name="description" required ng-model="task.description" maxlength="500" rows="5" md-select-on-focus></textarea>
+                            <div ng-messages="TaskForm.description.$error" role="alert">
+                                <div ng-message="required">This is required.</div>
+                                <div ng-message="maxlength">Then name must be less than 500 characters</div>
+                            </div>
+                        </md-input-container>
+
+                        <div layout-gt-sm="row">
+                            <div layout="column">
+                                Assigned By User
+                                <md-card md-theme="default" md-theme-watch>
+                                    <md-card-title>
+                                        <md-card-title-text>
+                                            <div layout="column" ng-cloak class="autocomplete-custom-template">
+                                                <md-autocomplete ng-disabled="isDisabled"
+                                                                 md-no-cache="noCache"
+                                                                 md-search-text="searchTextTo"
+                                                                 md-selected-item-change="assignedByUserChange(itemBy)"
+                                                                 md-items="itemBy in querySearch(searchTextTo)"
+                                                                 md-item-text="itemBy.display"
+                                                                 md-min-length="0"
+                                                                 required
+                                                                 placeholder="Search for User.."
+                                                                 md-menu-class="autocomplete-custom-template">
+                                                    <md-item-template>
+                                                        <span class="item-title">
+                                                            <span> {{itemBy.display}} </span>
+                                                        </span>
+                                                        <span class="item-metadata">
+                                                            <span class="item-metastat">
+                                                                <strong>{{itemBy.email}}</strong>
+                                                            </span>
+                                                        </span>
+                                                    </md-item-template>
+                                                    <md-not-found>
+                                                        No User Names matching "{{searchTextTo}}" were found.
+                                                    </md-not-found>
+                                                </md-autocomplete>
+                                            </div>
+                                            <span class="md-subhead" style="padding-left:15px">{{assignedByUser.email}}</span>
+                                        </md-card-title-text>
+                                        <md-card-title-media>
+                                            <div class="md-media-sm card-media">
+                                                <img ng-src="{{assignedByUser.image}}" class="md-card-image">
+                                            </div>
+                                        </md-card-title-media>
+                                    </md-card-title>
+                                </md-card>
+                            </div>
+                            <div layout="column">
+                                Assigned To User
+                                <md-card md-theme="default" md-theme-watch>
+                                    <md-card-title>
+                                        <md-card-title-text>
+                                            <div layout="column" ng-cloak class="autocomplete-custom-template">
+                                                <md-autocomplete ng-disabled="isDisabled"
+                                                                 md-no-cache="noCache"
+                                                                 md-search-text="searchTextBy"
+                                                                 md-selected-item-change="assignedToUserChange(itemTo)"
+                                                                 md-items="itemTo in querySearch(searchTextBy)"
+                                                                 md-item-text="itemTo.display"
+                                                                 md-min-length="0"
+                                                                 placeholder="Search for User.."
+                                                                 md-menu-class="autocomplete-custom-template">
+                                                    <md-item-template>
+                                                        <span class="item-title">
+                                                            <span> {{itemTo.display}} </span>
+                                                        </span>
+                                                        <span class="item-metadata">
+                                                            <span class="item-metastat">
+                                                                <strong>{{itemTo.email}}</strong>
+                                                            </span>
+                                                        </span>
+                                                    </md-item-template>
+                                                    <md-not-found>
+                                                        No User Names matching "{{searchTextBy}}" were found.
+                                                    </md-not-found>
+                                                </md-autocomplete>
+                                            </div>
+                                            <span class="md-subhead" style="padding-left:15px">{{assignedToUser.email}}</span>
+                                        </md-card-title-text>
+                                        <md-card-title-media>
+                                            <div class="md-media-sm card-media">
+                                                <img ng-src="{{assignedToUser.image}}" class="md-card-image">
+                                            </div>
+                                        </md-card-title-media>
+                                    </md-card-title>
+                                </md-card>
+                            </div>
+                            <div layout="column">
+                                <md-input-container>
+                                    <label>Start Date</label>
+                                    <md-datepicker ng-model="task.startDate"></md-datepicker>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Complete Date</label>
+                                    <md-datepicker ng-model="task.completeDate"></md-datepicker>
+                                </md-input-container>
+                            </div>
+                        </div>
+                    </md-content>
+                    <md-toolbar class="md-theme-light">
+                        <h2 class="md-toolbar-tools">
+                            <span>Optionals</span>
+                        </h2>
+                    </md-toolbar>
+                    <md-content layout-padding>
+                        <div layout-lg="column">
                             <md-input-container>
                                 <label>Due Date</label>
                                 <md-datepicker ng-model="task.dueDate"></md-datepicker>
                             </md-input-container>
-                            <md-input-container>
-                                <label>Complete Date</label>
-                                <md-datepicker ng-model="task.completeDate"></md-datepicker>
+
+                            <md-input-container class="md-block">
+                                <label>Comments</label>
+                                <textarea ng-model="task.comments" rows="5" md-select-on-focus></textarea>
                             </md-input-container>
                         </div>
-                    </div>
-                    <md-input-container class="md-block">
-                        <label>Comments</label>
-                        <textarea ng-model="task.comments" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-                    </md-input-container>
-
+                    </md-content>
+                    
                     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-                        <md-button class="md-raised" ng-click="createNewTask()">Create</md-button>
+                        <md-button class="md-raised" ng-click="createNewTask(TaskForm.$valid)">Create</md-button>
                     </section>
-                </form>
+</form>
             </div>
         </md-content>
     </div>
@@ -57,5 +170,10 @@
 
 @section scripts {
     @Scripts.Render("~/Scripts/app/tasks/newtask.js")
+    @Scripts.Render("~/Scripts/app/tasks/user-service.js")
     @Scripts.Render("~/Scripts/app/tasks/task-service.js")
+}
+
+@section styles {
+    <link href="@Url.Content("~/Styles/tasks/new-task.css")" rel="stylesheet" type="text/css" />
 }

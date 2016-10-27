@@ -1,28 +1,44 @@
 ﻿<div ng-app="TasksApp" class="jumbotron">
-    <h1>WELCOME</h1>
-
     <div ng-controller="TasksController" ng-cloak>
-        <md-content class="md-padding" layout-xs="column" layout="row">
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Current State</label>
+            <md-select ng-model="currentState" ng-init="currentState=-1">
+                <md-option ng-repeat="state in states" value="{{state.key}}">
+                    {{state.value}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+
+        <md-content class="md-padding" layout="column" >
             <h1 ng-show="tasks.length == 0">No tasks asigned</h1>
-            <div flex-xs flex-gt-xs="50" layout="column" ng-repeat="t in tasks">
+            <div flex-xs flex-gt-xs="50" ng-repeat="t in tasks | filter:filterCurrentState">
                 <md-card md-theme="default" md-theme-watch>
                     <md-card-title>
                         <md-card-title-text>
                             <span class="md-headline">{{t.name}}</span>
                             <span class="md-subhead">{{t.description}}</span>
                         </md-card-title-text>
-                        <md-card-title-media>
-                            <div class="md-media-sm card-media"></div>
-                        </md-card-title-media>
                     </md-card-title>
-                    <md-card-actions layout="row" layout-align="end center">
-                        <md-button>Action 1</md-button>
-                        <md-button>Action 2</md-button>
+                    <md-card-actions layout="row" layout-align="start center">
+                        <md-menu>
+                            <md-button aria-label="Open demo menu" ng-click="$mdOpenMenu($event)">
+                                {{states[1].value}}
+                            </md-button>
+                            <md-menu-content width="6">
+                                <md-menu-item ng-repeat="item in [1, 2, 3]">
+                                    <md-button ng-click="ctrl.announceClick($index)"> <span md-menu-align-target>Option</span> {{item}} </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
                     </md-card-actions>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <span class="md-subhead">{{t.startDate | date:'MMM dd' }} - {{t.completeDate | date:'MMM dd' }}</span>
+                    </md-card-actions>
+                </md-card>
             </div>
         </md-content>
     </div>
-
 </div>
 
 @section scripts {

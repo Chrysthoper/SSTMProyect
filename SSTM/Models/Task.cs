@@ -5,16 +5,17 @@ using System.Web;
 
 namespace SSTM.Models
 {
-    enum TaskState
-    {
-        New,
-        InProgress,
-        Waiting,
-        StandBy,
-        Done
-    }
     public class Task
     {
+        public enum TaskState
+        {
+            New,
+            InProgress,
+            Waiting,
+            StandBy,
+            Done
+        }
+
         public int id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
