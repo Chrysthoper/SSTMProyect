@@ -1,0 +1,31 @@
+﻿<div ng-app="TasksApp" class="jumbotron">
+    <h1>WELCOME</h1>
+
+    <div ng-controller="TasksController" ng-cloak>
+        <md-content class="md-padding" layout-xs="column" layout="row">
+            <h1 ng-show="tasks.length == 0">No tasks asigned</h1>
+            <div flex-xs flex-gt-xs="50" layout="column" ng-repeat="t in tasks">
+                <md-card md-theme="default" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{t.name}}</span>
+                            <span class="md-subhead">{{t.description}}</span>
+                        </md-card-title-text>
+                        <md-card-title-media>
+                            <div class="md-media-sm card-media"></div>
+                        </md-card-title-media>
+                    </md-card-title>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button>Action 1</md-button>
+                        <md-button>Action 2</md-button>
+                    </md-card-actions>
+            </div>
+        </md-content>
+    </div>
+
+</div>
+
+@section scripts {
+    @Scripts.Render("~/Scripts/app/tasks/tasks.js")
+    @Scripts.Render("~/Scripts/app/tasks/task-service.js")
+}
