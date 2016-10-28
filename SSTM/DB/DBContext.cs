@@ -7,7 +7,7 @@ using System.Web;
 
 namespace SSTM.DB
 {
-    public class DBContext : DbContext
+    public class DBContext : DbContext, IDisposable
     {
         public DBContext() : base("DBContext") { }
 

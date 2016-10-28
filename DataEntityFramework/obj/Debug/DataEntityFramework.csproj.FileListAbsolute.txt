@@ -1,0 +1,9 @@
+C:\Proyectos\SSTM\DataEntityFramework\bin\Debug\DataEntityFramework.dll.config
+C:\Proyectos\SSTM\DataEntityFramework\bin\Debug\DataEntityFramework.dll
+C:\Proyectos\SSTM\DataEntityFramework\bin\Debug\DataEntityFramework.pdb
+C:\Proyectos\SSTM\DataEntityFramework\bin\Debug\EntityFramework.dll
+C:\Proyectos\SSTM\DataEntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+C:\Proyectos\SSTM\DataEntityFramework\bin\Debug\EntityFramework.xml
+C:\Proyectos\SSTM\DataEntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+C:\Proyectos\SSTM\DataEntityFramework\obj\Debug\DataEntityFramework.dll
+C:\Proyectos\SSTM\DataEntityFramework\obj\Debug\DataEntityFramework.pdb

@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSTM", "SSTM\SSTM.csproj", "{0C39A583-645B-4A5E-98DC-04606E348DA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchedulerSSTM", "SchedulerSSTM\SchedulerSSTM.csproj", "{924F9976-0C40-42EE-955C-FB5971A38686}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataEntityFramework", "DataEntityFramework\DataEntityFramework.csproj", "{EC7593F3-EB3E-40BC-B86E-C4A839CAFBA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{0C39A583-645B-4A5E-98DC-04606E348DA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C39A583-645B-4A5E-98DC-04606E348DA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C39A583-645B-4A5E-98DC-04606E348DA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{924F9976-0C40-42EE-955C-FB5971A38686}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{924F9976-0C40-42EE-955C-FB5971A38686}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{924F9976-0C40-42EE-955C-FB5971A38686}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{924F9976-0C40-42EE-955C-FB5971A38686}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC7593F3-EB3E-40BC-B86E-C4A839CAFBA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC7593F3-EB3E-40BC-B86E-C4A839CAFBA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC7593F3-EB3E-40BC-B86E-C4A839CAFBA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC7593F3-EB3E-40BC-B86E-C4A839CAFBA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

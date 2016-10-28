@@ -45,3 +45,5 @@ C:\Proyectos\SSTM\SSTM\obj\Debug\SSTM.csprojResolveAssemblyReference.cache
 C:\Proyectos\SSTM\SSTM\obj\Debug\SSTM.dll
 C:\Proyectos\SSTM\SSTM\obj\Debug\SSTM.pdb
 C:\Proyectos\SSTM\SSTM\obj\Debug\SSTM.csproj.ResolveComReference.cache
+C:\Proyectos\SSTM\SSTM\bin\DataEntityFramework.dll
+C:\Proyectos\SSTM\SSTM\bin\DataEntityFramework.pdb

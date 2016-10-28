@@ -1,6 +1,6 @@
 ﻿using SSTM.Business;
-using SSTM.DB;
-using SSTM.Models;
+using DataEntityFramework;
+using DataEntityFramework.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,10 +28,7 @@ namespace SSTM.Controllers
             try
             {
                 var user = Authenticate.Authentication(User.Identity.Name);
-                t.assignedBy = user.id;
-                t.assignedTo = user.id;
                 t.currentProgress = 0;
-                t.currentState = (int)Task.TaskState.New;
                 t.newTask = true;
                 using (var context = new DBContext())
                 {

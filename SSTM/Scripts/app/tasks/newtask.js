@@ -22,8 +22,10 @@
 
     function NewTask() {
         $scope.currentState.key = 0;
-        $scope.assignedToUser = {};
-        $scope.assignedByUser = {};
+        $scope.assignedToUser = null;
+        $scope.assignedByUser = null;
+        $scope.assignedTo = null;
+        $scope.assignedBy = null;
         return {
             name: '',
             description: '',
@@ -43,13 +45,15 @@
     $scope.createNewTask = function (isValid) {
         if (isValid) {
             $('#div-loader').show();
-
+            $scope.task.assignedBy = $scope.assignedByUser.id;
+            $scope.task.assignedTo = $scope.assignedToUser.id;
             $scope.task.startDate = ($scope.task.startDate == '') ? new Date(1900, 1, 1) : $scope.task.startDate;
             $scope.task.dueDate = ($scope.task.dueDate == '') ? new Date(1900, 1, 1) : $scope.task.dueDate;
             $scope.task.completeDate = ($scope.task.completeDate == '') ? new Date(1900, 1, 1) : $scope.task.completeDate;
             TasksData.Create($scope.task).
             success(function (data) {
                 $scope.task = NewTask();
+
                 $('#div-loader').hide();
                 showSimpleToast();
                 console.log(data);
@@ -59,6 +63,8 @@
                 console.log(data);
             });
         }
+        else
+            $mdToast.show($mdToast.simple().textContent('Something went wrong, please check the info').position('bottom left'));
     }
 
       //////AUTOCOMPLETE
@@ -67,9 +73,7 @@
       self.isDisabled = false;
       // list of states to be displayed
       $scope.users = []
-      $scope.assignedToUser = {};
-      $scope.assignedByUser = {};
-
+      
       loadUsers();
       
       $scope.querySearch = function(query) {
@@ -103,6 +107,7 @@
             success(function (data) {
                 $scope.users = data.map(function (user) {
                     return {
+                        id: user.id,
                         value: user.name.toLowerCase(),
                         display: user.name,
                         email: user.email,

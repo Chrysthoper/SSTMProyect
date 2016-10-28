@@ -64,12 +64,10 @@
         </div>
     </div>
     <div class="container body-content">
-
+        @RenderBody()
         <div id="div-loader">
             <img src="/Content/Images/loader.gif" class="main-loader" />
         </div>
-
-        @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Super Simple Task Manager by Chrysthoper Contreras</p>
