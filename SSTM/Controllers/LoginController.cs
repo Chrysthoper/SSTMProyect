@@ -1,4 +1,4 @@
-﻿using SSTM.Business;
+﻿using DataEntityFramework.Business;
 using DataEntityFramework;
 using DataEntityFramework.Models;
 using System;
@@ -40,7 +40,7 @@ namespace SSTM.Controllers
                 return Content("Welcome to Super Simple Task Manager", MediaTypeNames.Text.Plain);
             }
             Response.StatusCode = (int)HttpStatusCode.BadRequest;
-            return Content("The user didn't exist", MediaTypeNames.Text.Plain);    
+            return Content("The user doesn't exist", MediaTypeNames.Text.Plain);    
         }
 
         [HttpPost]

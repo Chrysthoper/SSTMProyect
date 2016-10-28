@@ -7,3 +7,4 @@ C:\Proyectos\SSTM\DataEntityFramework\bin\Debug\EntityFramework.xml
 C:\Proyectos\SSTM\DataEntityFramework\bin\Debug\EntityFramework.SqlServer.xml
 C:\Proyectos\SSTM\DataEntityFramework\obj\Debug\DataEntityFramework.dll
 C:\Proyectos\SSTM\DataEntityFramework\obj\Debug\DataEntityFramework.pdb
+C:\Proyectos\SSTM\DataEntityFramework\obj\Debug\DataEntityFramework.csproj.ResolveComReference.cache

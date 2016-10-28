@@ -22,9 +22,10 @@
             });
     }
 
-    $scope.register = function () {
+    $scope.register = function (isValid) {
         $('#div-loader').show();
-        $http.post('/Login/Registration', $scope.form)
+        if (isValid) {
+            $http.post('/Login/Registration', $scope.form)
             .success(function (data) {
                 $('#div-loader').hide();
                 console.log(data);
@@ -40,6 +41,13 @@
                 $scope.ShowError = false;
                 console.log('Error:' + data);
             });
+        }
+        else {
+            $('#div-loader').hide();
+            $scope.alertRegistration = 'Please Verify the information';
+            $scope.ShowErrorRegistration = true;
+        }
+            
     }
     
     $('#div-loader').hide();
