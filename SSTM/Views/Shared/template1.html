@@ -1,0 +1,35 @@
+﻿<md-dialog aria-label="Mango (Fruit)">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Mango (Fruit)</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <h1 ng-show="tasks.length == 0">No tasks asigned</h1>
+        <div flex-xs flex-gt-xs="50" ng-repeat="t in tasks">
+            <md-card md-theme="default" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{t.name}}</span>
+                        <span class="md-subhead">{{t.description}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                    <span class="md-subhead">{{t.startDate | date:'MMM dd' }} - {{t.completeDate | date:'MMM dd' }}</span>
+                </md-card-actions>
+            </md-card>
+        </div>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="answer('useful')">
+                OK
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+

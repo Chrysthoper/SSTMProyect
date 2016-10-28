@@ -19,5 +19,15 @@ namespace SSTM.Controllers
         {
             return View();
         }
+
+        public ActionResult ListUsers()
+        {
+            return View();
+        }
+
+        public PartialViewResult TemplateTasks()
+        {
+            return PartialView("/Views/Shared/TemplateTasks.cshtml");
+        }
     }
 }

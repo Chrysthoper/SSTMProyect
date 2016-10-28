@@ -7,9 +7,11 @@
     TasksData.GetAll().
         success(function (data) {
             $scope.tasks = data;
+            $('#div-loader').hide();
         }).
         error(function (data) {
-
+            console.log(data);
+            $('#div-loader').hide();
         });
 
     $scope.states = [];
@@ -32,13 +34,6 @@
         return (element.currentState == $scope.currentState);
     };
 
-    $scope.announceClick = function (index) {
-        $mdDialog.show(
-          $mdDialog.alert()
-            .title('You clicked!')
-            .textContent('You clicked the menu item at index ' + index)
-            .ok('Nice')
-        );
-    };
+    
 
 });

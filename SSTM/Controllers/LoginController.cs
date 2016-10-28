@@ -61,7 +61,7 @@ namespace SSTM.Controllers
 
             var token = Authenticate.CreateToken(user);
 
-            Authenticate.SendEmailValidation(token.token);
+            General.SendEmailValidation(token.token, user.email);
 
             Response.StatusCode = (int)HttpStatusCode.OK;
             return Content("A token has been send to you email. Please click in the url to confirm the token.", MediaTypeNames.Text.Plain);

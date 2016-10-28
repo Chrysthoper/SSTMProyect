@@ -8,6 +8,31 @@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/angular-material.css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <style type="text/css">
+
+        #div-loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            background-color: white;
+            opacity: .8;
+        }
+
+        .main-loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -32px; /* -1 * image width / 2 */
+            margin-top: -32px; /* -1 * image height / 2 */
+            display: block;
+        }
+
+    </style>
+
 </head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <body>
@@ -25,16 +50,25 @@
                 @if (Request.IsAuthenticated)
                 {
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("My Tasks", "Index", "Home", new { area = "" }, null)</li>
-                        <li>@Html.ActionLink("Assign a Task", "NewTask", "Home", new { area = "" }, null)</li>
-                        <li>@Html.ActionLink("List Users", "Index", "Home", new { area = "" }, null)</li>
-                        <li><span style="color: #999999;">@Html.Encode(User.Identity.Name) @Html.ActionLink("Sign Out", "LogOff", "Login")</span></li>
+                        <li>@Html.ActionLink("My Tasks", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Assign a Task", "NewTask")</li>
+                        <li>@Html.ActionLink("List Users", "ListUsers")</li>
+                        <li></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li> <p class="navbar-text">@Html.Encode(User.Identity.Name)</p></li>
+                        <li>@Html.ActionLink("Sign Out", "LogOff", "Login")</li>
                     </ul>
                 }                 
             </div>
         </div>
     </div>
     <div class="container body-content">
+
+        <div id="div-loader">
+            <img src="/Content/Images/loader.gif" class="main-loader" />
+        </div>
+
         @RenderBody()
         <hr />
         <footer>

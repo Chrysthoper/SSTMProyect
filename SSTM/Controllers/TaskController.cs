@@ -18,6 +18,11 @@ namespace SSTM.Controllers
             return Tasks.GetAll(User.Identity.Name);
         }
 
+        public IEnumerable<Task> Get(int id)
+        {
+            return Tasks.GetAll(id);
+        }
+
         public string Post(Task t)
         {
             try

@@ -17,5 +17,12 @@ namespace SSTM.Business
                 return context.Tasks.Where(x => x.assignedTo == user.id).ToList();
             }
         }
+        public static IEnumerable<Task> GetAll(int id)
+        {
+            using (var context = new DBContext())
+            {
+                return context.Tasks.Where(x => x.assignedTo == id).ToList();
+            }
+        }
     }
 }

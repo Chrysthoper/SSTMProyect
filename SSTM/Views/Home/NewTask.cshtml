@@ -1,22 +1,14 @@
-﻿@{
-    ViewBag.Title = "NewTask";
-}
-
-<h2>NewTask</h2>
-<div ng-app="NewTaskApp">
-    <div ng-controller="NewTaskCtrl" layout-lg="column" ng-cloak class="md-inline-form">
+﻿<div ng-app="NewTaskApp" style="padding:50px">
+    <div ng-controller="NewTaskCtrl" layout-lg="column" ng-cloak md-padding class="md-inline-form">
         <md-content layout-padding>
-            <div>
-                <form name="TaskForm">
-                    <md-toolbar class="md-theme-light">
-                        <h2 class="md-toolbar-tools">
-                            <span>Main Characteristics</span>
-                        </h2>
-                    </md-toolbar>
+            <form name="TaskForm">
+                <md-toolbar class="md-theme-light">
+                    <h2 class="md-toolbar-tools">
+                        <span>Main Characteristics</span>
+                    </h2>
+                </md-toolbar>
                     <md-content layout-padding>
-
                         <div layout="row">
-
                             <md-input-container class="md-block" flex-gt-sm>
                                 <label>Name</label>
                                 <input maxlength="50" name="name" required ng-model="task.name">
@@ -48,7 +40,7 @@
                         <div layout-gt-sm="row">
                             <div layout="column">
                                 Assigned By User
-                                <md-card md-theme="default" md-theme-watch>
+                                <md-card md-theme="default" md-theme-watch style="width:360px">
                                     <md-card-title>
                                         <md-card-title-text>
                                             <div layout="column" ng-cloak class="autocomplete-custom-template">
@@ -81,7 +73,7 @@
                                         </md-card-title-text>
                                         <md-card-title-media>
                                             <div class="md-media-sm card-media">
-                                                <img ng-src="{{assignedByUser.image}}" class="md-card-image">
+                                                <img ng-show="assignedByUser!=undefined" ng-src="{{assignedByUser.image}}" class="md-card-image">
                                             </div>
                                         </md-card-title-media>
                                     </md-card-title>
@@ -89,7 +81,7 @@
                             </div>
                             <div layout="column">
                                 Assigned To User
-                                <md-card md-theme="default" md-theme-watch>
+                                <md-card md-theme="default" md-theme-watch style="width:360px">
                                     <md-card-title>
                                         <md-card-title-text>
                                             <div layout="column" ng-cloak class="autocomplete-custom-template">
@@ -121,7 +113,7 @@
                                         </md-card-title-text>
                                         <md-card-title-media>
                                             <div class="md-media-sm card-media">
-                                                <img ng-src="{{assignedToUser.image}}" class="md-card-image">
+                                                <img ng-show="assignedToUser!=undefined" ng-src="{{assignedToUser.image}}" class="md-card-image">
                                             </div>
                                         </md-card-title-media>
                                     </md-card-title>
@@ -157,12 +149,11 @@
                             </md-input-container>
                         </div>
                     </md-content>
-                    
+
                     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
                         <md-button class="md-raised" ng-click="createNewTask(TaskForm.$valid)">Create</md-button>
                     </section>
-</form>
-            </div>
+                </form>
         </md-content>
     </div>
 
@@ -170,7 +161,7 @@
 
 @section scripts {
     @Scripts.Render("~/Scripts/app/tasks/newtask.js")
-    @Scripts.Render("~/Scripts/app/tasks/user-service.js")
+    @Scripts.Render("~/Scripts/app/users/user-service.js")
     @Scripts.Render("~/Scripts/app/tasks/task-service.js")
 }
 

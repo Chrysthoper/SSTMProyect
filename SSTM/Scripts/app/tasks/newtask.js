@@ -1,5 +1,5 @@
 ﻿angular.module('NewTaskApp', ['ngMaterial', 'ngMessages', 'TaskService', 'UserService'])
-  .controller('NewTaskCtrl', function ($scope, TasksData, $timeout, $q, $log, UsersData) {
+  .controller('NewTaskCtrl', function ($scope, TasksData, $timeout, $q, $log, UsersData, $mdToast) {
   
     $scope.currentState = {};
 
@@ -16,7 +16,14 @@
             console.log(data);
         });
 
-    function NewTask(){
+    function showSimpleToast() {
+        $mdToast.show($mdToast.simple().textContent('Task Created!!!').position('bottom left'));
+    };
+
+    function NewTask() {
+        $scope.currentState.key = 0;
+        $scope.assignedToUser = {};
+        $scope.assignedByUser = {};
         return {
             name: '',
             description: '',
@@ -25,8 +32,8 @@
             completeDate: '',
             currentState: 0,
             currentProgress: 0,
-            assignedBy: 0,
-            assignedTo: 0,
+            assignedBy: '',
+            assignedTo: '',
             comments: ''
         };
     }
@@ -35,15 +42,20 @@
 
     $scope.createNewTask = function (isValid) {
         if (isValid) {
+            $('#div-loader').show();
+
             $scope.task.startDate = ($scope.task.startDate == '') ? new Date(1900, 1, 1) : $scope.task.startDate;
             $scope.task.dueDate = ($scope.task.dueDate == '') ? new Date(1900, 1, 1) : $scope.task.dueDate;
             $scope.task.completeDate = ($scope.task.completeDate == '') ? new Date(1900, 1, 1) : $scope.task.completeDate;
             TasksData.Create($scope.task).
             success(function (data) {
                 $scope.task = NewTask();
+                $('#div-loader').hide();
+                showSimpleToast();
                 console.log(data);
             }).
             error(function (data) {
+                $('#div-loader').hide();
                 console.log(data);
             });
         }
@@ -111,6 +123,6 @@
           };
       }
 
-
+      $('#div-loader').hide();
   });
 

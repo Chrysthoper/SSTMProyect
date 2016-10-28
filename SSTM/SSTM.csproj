@@ -142,9 +142,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Business\Authenticate.cs" />
+    <Compile Include="Business\General.cs" />
     <Compile Include="Business\Tasks.cs" />
     <Compile Include="Business\Users.cs" />
-    <Compile Include="Controllers\Default1Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
@@ -170,6 +170,7 @@
     <Content Include="Content\angular-material.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\loader.gif" />
     <Content Include="Content\Images\user-default.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -189,9 +190,10 @@
     <Content Include="Scripts\app\login\logic-form.js" />
     <Content Include="Scripts\app\login\login.js" />
     <Content Include="Scripts\app\tasks\newtask.js" />
-    <Content Include="Scripts\app\tasks\user-service.js" />
+    <Content Include="Scripts\app\users\user-service.js" />
     <Content Include="Scripts\app\tasks\task-service.js" />
     <Content Include="Scripts\app\tasks\tasks.js" />
+    <Content Include="Scripts\app\users\users.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -217,6 +219,8 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Styles\login\login.css" />
     <Content Include="Styles\tasks\new-task.css" />
+    <Content Include="Styles\users\users.css" />
+    <Content Include="Views\Shared\template1.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -235,6 +239,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Home\NewTask.cshtml" />
+    <Content Include="Views\Home\ListUsers.cshtml" />
+    <Content Include="Views\Shared\TemplateTasks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

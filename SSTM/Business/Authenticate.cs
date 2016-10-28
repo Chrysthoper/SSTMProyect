@@ -68,27 +68,5 @@ namespace SSTM.Business
             }
         }
 
-        public static void SendEmailValidation(Guid token)
-        {
-            try
-            {
-                MailMessage mM = new MailMessage();
-                mM.From = new MailAddress("chrys_18@hotmail.com");
-                mM.To.Add("chrysisc18@gmail.com");
-                mM.Subject = "Token validation for SSTM";
-                mM.Body = "Click in the URL:" + "http://localhost:47155/Login/ConfirmToken?token=" + token;
-                mM.IsBodyHtml = true;
-                SmtpClient sC = new SmtpClient("smtp.live.com");
-                sC.Port = 25;
-                sC.Credentials = new NetworkCredential("chrys_18@hotmail.com", "ISC0812abc");
-                sC.EnableSsl = true;
-                sC.Send(mM);
-            }
-            catch (System.Exception ex)
-            {
-                Console.Write(ex.Message);
-            }
-        }
-
     }
 }

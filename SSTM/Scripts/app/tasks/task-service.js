@@ -14,5 +14,13 @@
         return $http.get('/api/taskstates/');
     }
 
+    TasksData.GetModalForTask = function () {
+        return $http.get('/home/TemplateTasks/');
+    }
+
+    TasksData.GetAllFromUser = function (id) {
+        return $http.get('/api/task/' + id);
+    }
+
     return TasksData;
 }]);
