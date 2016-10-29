@@ -30,12 +30,7 @@ namespace SSTM.Controllers
                 var user = Authenticate.Authentication(User.Identity.Name);
                 t.currentProgress = 0;
                 t.newTask = true;
-                using (var context = new DBContext())
-                {
-                    context.Tasks.Add(t);
-                    context.SaveChanges();
-                    return "Task Created";
-                }
+                return Tasks.Create(t);
             }
             catch (Exception ex)
             {

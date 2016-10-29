@@ -2,6 +2,7 @@ C:\Proyectos\SSTM\SSTM\bin\SSTM.dll.config
 C:\Proyectos\SSTM\SSTM\bin\SSTM.dll
 C:\Proyectos\SSTM\SSTM\bin\SSTM.pdb
 C:\Proyectos\SSTM\SSTM\bin\Antlr3.Runtime.dll
+C:\Proyectos\SSTM\SSTM\bin\DataEntityFramework.dll
 C:\Proyectos\SSTM\SSTM\bin\EntityFramework.dll
 C:\Proyectos\SSTM\SSTM\bin\EntityFramework.SqlServer.dll
 C:\Proyectos\SSTM\SSTM\bin\Microsoft.Web.Infrastructure.dll
@@ -17,6 +18,7 @@ C:\Proyectos\SSTM\SSTM\bin\System.Web.WebPages.Deployment.dll
 C:\Proyectos\SSTM\SSTM\bin\System.Web.WebPages.dll
 C:\Proyectos\SSTM\SSTM\bin\System.Web.WebPages.Razor.dll
 C:\Proyectos\SSTM\SSTM\bin\WebGrease.dll
+C:\Proyectos\SSTM\SSTM\bin\DataEntityFramework.pdb
 C:\Proyectos\SSTM\SSTM\bin\EntityFramework.xml
 C:\Proyectos\SSTM\SSTM\bin\EntityFramework.SqlServer.xml
 C:\Proyectos\SSTM\SSTM\bin\Newtonsoft.Json.xml
@@ -42,8 +44,6 @@ C:\Proyectos\SSTM\SSTM\bin\es\System.Web.WebPages.resources.dll
 C:\Proyectos\SSTM\SSTM\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Proyectos\SSTM\SSTM\bin\es\System.Web.WebPages.Razor.resources.dll
 C:\Proyectos\SSTM\SSTM\obj\Debug\SSTM.csprojResolveAssemblyReference.cache
+C:\Proyectos\SSTM\SSTM\obj\Debug\SSTM.csproj.ResolveComReference.cache
 C:\Proyectos\SSTM\SSTM\obj\Debug\SSTM.dll
 C:\Proyectos\SSTM\SSTM\obj\Debug\SSTM.pdb
-C:\Proyectos\SSTM\SSTM\obj\Debug\SSTM.csproj.ResolveComReference.cache
-C:\Proyectos\SSTM\SSTM\bin\DataEntityFramework.dll
-C:\Proyectos\SSTM\SSTM\bin\DataEntityFramework.pdb

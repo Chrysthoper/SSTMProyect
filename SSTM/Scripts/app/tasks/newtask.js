@@ -30,7 +30,6 @@
             name: '',
             description: '',
             startDate: '',
-            dueDate: '',
             completeDate: '',
             currentState: 0,
             currentProgress: 0,
@@ -48,15 +47,22 @@
             $scope.task.assignedBy = $scope.assignedByUser.id;
             $scope.task.assignedTo = $scope.assignedToUser.id;
             $scope.task.startDate = ($scope.task.startDate == '') ? new Date(1900, 1, 1) : $scope.task.startDate;
-            $scope.task.dueDate = ($scope.task.dueDate == '') ? new Date(1900, 1, 1) : $scope.task.dueDate;
+            $scope.task.dueDate = ($scope.task.dueDate == '' || $scope.task.dueDate == null) ? new Date(1900, 1, 1) : $scope.task.dueDate;
             $scope.task.completeDate = ($scope.task.completeDate == '') ? new Date(1900, 1, 1) : $scope.task.completeDate;
             TasksData.Create($scope.task).
             success(function (data) {
-                $scope.task = NewTask();
-
                 $('#div-loader').hide();
-                showSimpleToast();
-                console.log(data);
+                if (data == 'Task Created')
+                {
+                    $scope.task = NewTask();
+                    showSimpleToast();
+                    console.log(data);
+                }
+                else
+                {
+                    $mdToast.show($mdToast.simple().textContent('Something went wrong, please check the info').position('bottom left'));
+                    console.log(data);
+                }
             }).
             error(function (data) {
                 $('#div-loader').hide();

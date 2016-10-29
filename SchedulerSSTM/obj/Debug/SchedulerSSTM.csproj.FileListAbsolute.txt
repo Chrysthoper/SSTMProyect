@@ -1,12 +1,12 @@
 C:\Proyectos\SSTM\SchedulerSSTM\bin\Debug\SchedulerSSTM.exe.config
 C:\Proyectos\SSTM\SchedulerSSTM\bin\Debug\SchedulerSSTM.exe
 C:\Proyectos\SSTM\SchedulerSSTM\bin\Debug\SchedulerSSTM.pdb
+C:\Proyectos\SSTM\SchedulerSSTM\bin\Debug\DataEntityFramework.dll
 C:\Proyectos\SSTM\SchedulerSSTM\bin\Debug\EntityFramework.dll
 C:\Proyectos\SSTM\SchedulerSSTM\bin\Debug\EntityFramework.SqlServer.dll
+C:\Proyectos\SSTM\SchedulerSSTM\bin\Debug\DataEntityFramework.pdb
 C:\Proyectos\SSTM\SchedulerSSTM\bin\Debug\EntityFramework.xml
 C:\Proyectos\SSTM\SchedulerSSTM\bin\Debug\EntityFramework.SqlServer.xml
 C:\Proyectos\SSTM\SchedulerSSTM\obj\Debug\SchedulerSSTM.csprojResolveAssemblyReference.cache
 C:\Proyectos\SSTM\SchedulerSSTM\obj\Debug\SchedulerSSTM.exe
 C:\Proyectos\SSTM\SchedulerSSTM\obj\Debug\SchedulerSSTM.pdb
-C:\Proyectos\SSTM\SchedulerSSTM\bin\Debug\DataEntityFramework.dll
-C:\Proyectos\SSTM\SchedulerSSTM\bin\Debug\DataEntityFramework.pdb

@@ -140,10 +140,8 @@
                     </md-toolbar>
                     <md-content layout-padding>
                         <div layout-lg="column">
-                            <md-input-container>
-                                <label>Due Date</label>
-                                <md-datepicker ng-model="task.dueDate"></md-datepicker>
-                            </md-input-container>
+                            <label>Due Date</label>
+                            <md-datepicker ng-required="false" ng-model="task.dueDate"></md-datepicker>
 
                             <md-input-container class="md-block">
                                 <label>Comments</label>

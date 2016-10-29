@@ -26,5 +26,15 @@ namespace DataEntityFramework.Business
                 return context.Tasks.Where(x => x.assignedTo == id).ToList();
             }
         }
+
+        public static string Create(Task t)
+        {
+            using (var context = new DBContext())
+            {
+                context.Tasks.Add(t);
+                context.SaveChanges();
+                return "Task Created";
+            }
+        }
     }
 }
